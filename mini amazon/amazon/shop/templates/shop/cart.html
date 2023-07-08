@@ -1,0 +1,56 @@
+{% extends "shop/basic.html"%}
+{% block title %}
+Cart : See Product
+{% endblock %}
+{% block style %}
+<style>
+  .price_show{
+    border: 1px solid lightgray;
+    background-color: lightyellow;
+    margin-left: 15px;
+  }
+</style>
+{% endblock %}
+{% block body %}
+<div class="container">
+  <table class="table  table-bordered table-striped">
+    <thead>
+      <tr>
+        <th scope="col" style="width: 3rem;">No.</th>
+        <th scope="col" style="width: 10rem;">Name</th>
+        <th scope="col" style="width: 10rem;">Brand</th>
+        <th scope="col" style="width: 5rem;">Quantity</th>
+        <th scope="col" style="width: 10rem;">Price</th>
+        <th scope="col">Description</th>
+        <th scope="col" style="width: 5rem;"></th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider ">
+      {% for scart in cartproduct %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{scart.product.pname}}</td>
+        <td>{{scart.product.brand}}</td>
+        <td>{{scart.quantity}}</td>
+        <td><strong>$</strong> {{scart.product.price}}(1 Unit)</td>
+        <td>{{scart.product.desc}}</td>
+        <td>
+          <a class="btn btn-outline-danger " href="{% url 'cart' 'remove'%}?recart={{scart.id}}"
+            style="width: 55px;font-size:12px ;padding: 5px;font-weight: 700;">Remove</a>
+          <a class="btn btn-outline-success " href="{% url 'view' scart.id %}"
+            style="width: 55px;font-size:12px ;padding: 5px;font-weight: 700;margin-top: 10px;">View</a>
+        </td>
+      </tr>
+      {% endfor%}
+
+
+    </tbody>
+  </table>
+
+  <a href="{% url 'checkout' %}" class="btn btn-primary">Checkout</a>
+  
+    
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+.box{
+        background-color: lightblue;
+        width:500px ;
+        height: 650px;
+        margin: auto;
+        margin-top:150px;
+        border-radius: 15px;
+        padding: 50px;
+}
+.box1{
+        background-color: lightblue;
+        width:500px ;
+        height: 400px;
+        margin: auto;
+        margin-top:200px;
+        border-radius: 15px;
+        padding: 50px;
+}
+.flex-row{
+        font-weight: bold;
+}
+form{   
+        padding: 10px;
+        margin-top: 10px;
+       
+        height: 350px;
+        font-size: larger;
+}
+body{
+       background-image: url("/static/images/back.jpg");
+       background-size: 100%;
+}
+.headin{
+        text-align:center ;
+        font-size: 50px;
+}

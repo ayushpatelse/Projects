@@ -1,0 +1,169 @@
+{% extends "shop/basic.html" %}
+{% block title %}
+Checkout
+{% endblock %}
+{% block style %}
+<style>
+        img {
+                width: 70px;
+                height: 100px;
+                margin-left: 50px;
+                align-items: center;
+        }
+
+        .details {
+                margin: 0px 5px 10px 0px;
+                box-shadow: 1px 1px 15px gray;
+                height: 400px;
+                background-color: whitesmoke;
+                padding: 30px;
+        }
+
+        .col-md-7 {
+                height: 50px;
+        }
+
+        .bill {
+                box-shadow: 1px 1px 15px gray;
+                padding: 20px;
+        }
+
+        thead {
+                border-bottom: 1px solid gray;
+
+        }
+
+        .payment-box {
+                background-color: whitesmoke;
+                height: 290px;
+                width: 540px;
+                box-shadow: 1px 5px 15px gray;
+                padding: 80px 50px 50px 50px;
+        }
+
+        .input {
+
+                border-radius: 3px;
+                background-color: lightblue;
+        }
+
+        table {
+                width: fit-content;
+                margin-top: 10px;
+
+        }
+
+        .cart-button {
+                text-decoration: none;
+                border: 2px solid rgba(18, 143, 35, 0.575);
+                font-weight: 500;
+                padding: 7px;
+        }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="container   mt-2">
+
+        <div class="row ">
+                <div class="col-md-6 ">
+                        <div class="details pt-5">
+                                <div class="input-group mb-3">
+                                        <input type="text" class="form-control input" value="Username"
+                                                aria-label="Username">
+                                        <span class="input-group-text">@</span>
+                                        <input type="text" class="form-control input" value="Server"
+                                                aria-label="Server">
+                                </div>
+
+                                <h3 class="text-dark" style="margin-left: 150px;margin-top: 50px;">Order Details</h3>
+                                <div class="mt-3">
+                                        <div class="input-group mb-3 ">
+                                                <input type="text" value="shipno" class="form-control input ms-1 mt-3"
+                                                        name="" id="">
+                                                <input type="text" class="form-control input ms-1" name="" id="">
+
+                                        </div>
+                                        <div class="input-group mb-3 ">
+                                                <input type="text" value="shipno" class="form-control input ms-1"
+                                                        name="" id="">
+                                                <input type="text" class="form-control input ms-1" name="" id="">
+
+                                        </div>
+                                        <div class="input-group mb-3 ">
+                                                <input type="text" value="shipno" class="form-control input ms-1"
+                                                        name="" id="">
+
+                                        </div>
+
+                                </div>
+                        </div>
+                        <div class=" bordered-text">
+                                <h1 class="text-center">Payment Method</h1>
+                                <div class="payment-box">
+                                        <a href="" class="btn btn-dark"
+                                        style="width: 450px;font-weight: bold;font-size: x-large; height: 50px;">
+                                         
+                                        <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="25" height="" style="margin: 5px;padding-bottom:5px ;"
+                                                fill="currentColor" class="bi bi-credit-card-fill" viewBox="0 0 16 16">
+                                                <path
+                                                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1H0V4zm0 3v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7H0zm3 2h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1z" />
+                                        
+                                                               </svg>Debit card</a>
+
+
+                                <a href="" class="btn btn-primary"
+                                        style="width: 450px;margin-top: 15px; font-weight: bold;font-size: x-large;"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" fill="currentColor" class="bi bi-paypal" viewBox="0 0 16 16">
+                                                <path d="M14.06 3.713c.12-1.071-.093-1.832-.702-2.526C12.628.356 11.312 0 9.626 0H4.734a.7.7 0 0 0-.691.59L2.005 13.509a.42.42 0 0 0 .415.486h2.756l-.202 1.28a.628.628 0 0 0 .62.726H8.14c.429 0 .793-.31.862-.731l.025-.13.48-3.043.03-.164.001-.007a.351.351 0 0 1 .348-.297h.38c1.266 0 2.425-.256 3.345-.91.379-.27.712-.603.993-1.005a4.942 4.942 0 0 0 .88-2.195c.242-1.246.13-2.356-.57-3.154a2.687 2.687 0 0 0-.76-.59l-.094-.061ZM6.543 8.82a.695.695 0 0 1 .321-.079H8.3c2.82 0 5.027-1.144 5.672-4.456l.003-.016c.217.124.4.27.548.438.546.623.679 1.535.45 2.71-.272 1.397-.866 2.307-1.663 2.874-.802.57-1.842.815-3.043.815h-.38a.873.873 0 0 0-.863.734l-.03.164-.48 3.043-.024.13-.001.004a.352.352 0 0 1-.348.296H5.595a.106.106 0 0 1-.105-.123l.208-1.32.845-5.214Z"/>
+                                              </svg>Paypal</a>
+                                <br>
+
+                                </div>
+                        </div>
+                </div>
+                <div class="col-md-6   ">
+                        <div class=" bill">
+                                <a href="{%  url 'cart' 'view'%}" class="cart-button text-dark"><i
+                                                class="bi bi-arrow-left"></i> Back To Cart</a>
+
+                                <h3 style="text-align: left; font-size: 50px; margin-top: 10px;">Order Summary </h3>
+                                <table>
+                                        <thead class="fs-5">
+                                                <th style="width: 10px;">No</th>
+                                                <th style="width: 150px;"></th>
+                                                <th style="width: 100px;">Name</th>
+                                                <th style="width: 100px;">Quantity</th>
+                                                <th style="width: fit-content;">Price</th>
+
+                                        </thead>
+                                        <tbody>
+                                                {% for item in items %}
+                                                <tr class="fw-bold">
+                                                        <td>{{forloop.counter}}</td>
+                                                        <td><img src="{{ item.product.image.url }}" alt="Images"></td>
+                                                        <td>{{item.product.pname}}</td>
+                                                        <td>{{item.quantity}}x</td>
+                                                        <td>$ {{item.product.price}}</td>
+                                                </tr>
+                                                {% endfor %}
+                                        </tbody>
+                                        <tfoot>
+                                                <tr>
+                                                        <td colspan="3" class="fw-bold fs-4 ">Items : {{numberofitem}}
+                                                        </td>
+
+                                                </tr>
+                                                <tr>
+                                                        <td colspan="3" class="fw-bold fs-4">Bill : ${{totalbill}}</td>
+                                                </tr>
+                                        </tfoot>
+
+                                </table>
+                        </div>
+                </div>
+        </div>
+
+
+</div>
+{% endblock %}

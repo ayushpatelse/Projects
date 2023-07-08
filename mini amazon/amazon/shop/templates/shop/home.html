@@ -1,0 +1,154 @@
+{% extends 'shop/basic.html' %}
+
+{% block title %} Amazon{% endblock %}
+{% block style %}
+<style>
+  .carousel-control-prev,
+  .carousel-control-next {
+    background-color: black;
+    width: 20px;
+    height: 20px;
+    margin-top: 210px;
+  }
+
+  img {
+    height: 250px;
+    width: 100%;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  .card {
+    height: 550px;
+    width: 285px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.295);
+    background-color: white;
+  }
+
+  .card-text {
+    height: 140px;
+  }
+
+
+  .design {
+    width: 250px;
+    height: auto;
+  }
+
+  .container1 {
+    margin: 20px 50px 50px 50px;
+  }
+
+  .carousel {
+    padding: 5px;
+  }
+
+  .filter1 {
+    background-color: lightgray;
+    font-size: large;
+    width: 250px;
+    padding: 10px;
+  }
+</style>
+{% endblock %}
+
+
+{% block body %}
+<div class="container1">
+
+  <!-- Dropdown For Sub Category -->
+  <div class="dropdown   ">
+    <button class="btn btn-warning dropdown-toggle design" type="button" data-bs-toggle="dropdown"
+      aria-expanded="false">
+      <i class="bi bi-funnel-fill"></i>Filter
+    </button>
+
+    <ul class="dropdown-menu filter1">
+
+      {% for fil in filter %}
+      {% for use in fil %}
+
+
+      <input type="checkbox" name="filter" value="{{use}}"> {{use}}
+
+      {% endfor %}
+      <hr>
+      {% endfor %}
+      <button type="submit" class="btn btn-dark"> Filter</button>
+
+
+    </ul>
+
+  </div>
+
+
+  <!-- carousel start -->
+  <div id="slideprod" class="carousel slide">
+
+
+
+
+    <div class="carousel-inner">
+      {% for product in items %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <div class="row">
+
+          {% for i in product %}
+
+          <div class="col-sm-3">
+            <div class="card">
+
+              <img src="{{i.image}}" class="card-img-top" alt="...">
+
+
+              <div class="card-body">
+                <hr>
+                <h5 class="card-title">{{i.pname}}</h5>
+
+                <p class="card-text">{{i.desc}}</p>
+              </div>
+
+
+              <div class="card-footer p-2 ">
+
+                <a href="{% url 'cart' 'add' %}?addcart={{i.id}}" class="btn btn-outline-primary "
+                  style="margin-left: 20px;padding-left: 10px;"><i class="bi bi-cart-plus"></i> Add to
+                  cart</a>
+
+
+                <a href='{% url "view" i.id %}' style="margin-left: 20px" class="btn btn-outline-success">View</a>
+
+              </div>
+
+            </div>
+          </div>
+
+
+          {% endfor %}
+
+
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
+
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#slideprod" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#slideprod" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
+
+
+</div>
+
+
+{% endblock %}
